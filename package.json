@@ -1,0 +1,21 @@
+{
+  "name": "comment-server",
+  "version": "0.0.0",
+  "description": "WebSocket server for commentator",
+  "main": "index.js",
+  "scripts": {
+    "test": "jasmine-node"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/zgohr/comment-server.git"
+  },
+  "author": "Zach Gohr",
+  "license": "BSD",
+  "bugs": {
+    "url": "https://github.com/zgohr/comment-server/issues"
+  },
+  "dependencies": {
+    "socket.io": "~0.9.14"
+  }
+}
