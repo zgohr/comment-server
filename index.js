@@ -15,7 +15,11 @@ sock.on('connection', function(conn) {
       }
     };
   });
+  conn.on('close', function() {
+    delete clients[conn.id];
+  });
 });
+
 
 var server = http.createServer();
 
