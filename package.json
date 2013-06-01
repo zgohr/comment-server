@@ -16,6 +16,6 @@
     "url": "https://github.com/zgohr/comment-server/issues"
   },
   "dependencies": {
-    "socket.io": "~0.9.14"
+    "sockjs": "~0.3.7"
   }
 }
