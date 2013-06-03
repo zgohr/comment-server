@@ -8,12 +8,11 @@ sock.on('connection', function(conn) {
   clients[conn.id] = conn;
 
   conn.on('data', function(message) {
-    console.log(message);
-    for (key in clients) {
-      if (clients.hasOwnProperty(key)) {
+    for (var key in clients) {
+      if (clients.hasOwnProperty(key) && key !== conn.id) {
         clients[key].write(message);
       }
-    };
+    }
   });
   conn.on('close', function() {
     delete clients[conn.id];
