@@ -22,5 +22,6 @@ sock.on('connection', function(conn) {
 
 var server = http.createServer();
 
-sock.installHandlers(server, {prefix: '/sock'});
+//sock.installHandlers(server, {prefix: '/sock'});
+sock.installHandlers(server);
 server.listen(9999, '0.0.0.0');
