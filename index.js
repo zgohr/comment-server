@@ -8,12 +8,19 @@ sock.on('connection', function(conn) {
   clients[conn.id] = conn;
 
   conn.on('data', function(message) {
-    for (var key in clients) {
-      if (clients.hasOwnProperty(key) && key !== conn.id) {
-        clients[key].write(message);
-      }
+    message = JSON.parse(message);
+    switch (message.type) {
+      case "new-comment":
+        message.timestamp = Date.now();
+        for (var key in clients) {
+          if (clients.hasOwnProperty(key) && key !== conn.id) {
+            clients[key].write(JSON.stringify(message));
+          }
+        }
+        break;
     }
   });
+
   conn.on('close', function() {
     delete clients[conn.id];
   });
